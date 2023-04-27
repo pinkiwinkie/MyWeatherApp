@@ -13,6 +13,7 @@ public class Root implements Serializable {
     public ArrayList<List> list;
     public City city;
 
+
     public String getCity(){
         return city.name;
     }
