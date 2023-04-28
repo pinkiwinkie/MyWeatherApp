@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
         AdaptadorRecicler adaptador = new AdaptadorRecicler(this, root);
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        textViewCiudad.setText(root.getCity());
+        textViewCiudad.setText(root.city.name);
 //        txtView.setText(root.list.get(0).weather.get(0).description);//cielo
 //        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
 //

@@ -9,11 +9,10 @@
         android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:text="day"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvCielo"
-        app:layout_constraintEnd_toStartOf="@+id/tvDate"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside" />
@@ -22,116 +21,100 @@
         android:id="@+id/tvCielo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
         android:text="cielo"
-        app:layout_constraintBottom_toTopOf="@+id/textViewMax"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTemp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/tvDay" />
 
     <TextView
         android:id="@+id/tvTemperatura"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="13dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="41dp"
         android:text="temperatura"
-        app:layout_constraintBottom_toTopOf="@+id/tvTempMin"
-        app:layout_constraintEnd_toEndOf="@+id/tvHora"
-        app:layout_constraintStart_toStartOf="@+id/tvTempMax"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewTemp"
+        app:layout_constraintTop_toTopOf="@+id/textViewTemp" />
 
     <TextView
         android:id="@+id/tvDate"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="52dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="4dp"
         android:text="fecha"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTemp"
-        app:layout_constraintEnd_toStartOf="@+id/tvHora"
         app:layout_constraintStart_toEndOf="@+id/tvDay"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tvDay" />
 
     <TextView
         android:id="@+id/tvHora"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="38dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="42dp"
         android:text="hora"
-        app:layout_constraintBottom_toTopOf="@+id/tvTemperatura"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvDate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tvDate" />
 
     <TextView
         android:id="@+id/tvTempMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
+        android:layout_marginStart="18dp"
         android:text="maximas"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewMin"
-        app:layout_constraintEnd_toStartOf="@+id/tvTempMin" />
+        app:layout_constraintStart_toEndOf="@+id/textViewMax"
+        app:layout_constraintTop_toTopOf="@+id/textViewMax" />
 
     <TextView
         android:id="@+id/tvTempMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="26dp"
         android:text="minimas"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewMin"
-        app:layout_constraintTop_toBottomOf="@+id/tvTemperatura" />
+        app:layout_constraintTop_toTopOf="@+id/textViewMin" />
 
     <TextView
         android:id="@+id/textViewMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="44dp"
         android:text="min"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvTempMin"
-        app:layout_constraintStart_toEndOf="@+id/textViewTemp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTemp" />
+        app:layout_constraintStart_toEndOf="@+id/tvTempMax"
+        app:layout_constraintTop_toTopOf="@+id/tvTempMax" />
 
     <TextView
         android:id="@+id/textViewMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="15dp"
         android:text="max"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvCielo"
-        app:layout_constraintTop_toBottomOf="@+id/tvCielo" />
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textViewTemp"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
         android:text="temp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewMin"
-        app:layout_constraintEnd_toStartOf="@+id/textViewMin"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCielo"
         app:layout_constraintStart_toEndOf="@+id/tvCielo"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+        app:layout_constraintTop_toTopOf="@+id/tvCielo" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="35dp"
+        android:layout_width="80dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvCielo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star" />
