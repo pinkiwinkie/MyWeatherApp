@@ -34,19 +34,6 @@ public class MainActivity extends BaseActivity implements CallInterface {
         recyclerView = findViewById(R.id.recycler);
         textViewCiudad = findViewById(R.id.textViewCiudad);
 
-
-
-
-        ActivityResultLauncher<Intent> someActivityResultLauncher =
-                registerForActivityResult(
-                        new ActivityResultContracts.StartActivityForResult(),
-                        result -> {});
-//        txtView = findViewById(R.id.txtView);
-//        textViewDay = findViewById(R.id.textViewDay);
-//        textViewDayOfWeek = findViewById(R.id.textViewDayOfWeek);
-//        txtView = findViewById(R.id.txtView);
-//        imageView = findViewById(R.id.imageView);
-
         // Mostramos la barra de progreso y ejecutamos la llamada a la API
         showProgress();
         executeCall(this);
@@ -59,6 +46,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos
+    //para inicializar RecyclerView y asociarle el LinearLayout ha de ser despues del hideProgress()
     @Override
     public void doInUI() {
         hideProgress();
@@ -66,17 +54,5 @@ public class MainActivity extends BaseActivity implements CallInterface {
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         textViewCiudad.setText(root.city.name);
-//        txtView.setText(root.list.get(0).weather.get(0).description);//cielo
-//        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
-//
-//        Date date = new Date((long)root.list.get(0).dt*1000);
-//        SimpleDateFormat dateDayOfWeek = new SimpleDateFormat("E");
-//        SimpleDateFormat dateDay = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
-//        textViewDayOfWeek.setText(dateDayOfWeek.format(date));
-//        textViewDay.setText(dateDay.format(date));
-
-        //para inicializar RecyclerView y asociarle el LinearLayout ha de ser despues del hideProgress()
-
-
     }
 }
