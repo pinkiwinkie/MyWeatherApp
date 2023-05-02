@@ -63,8 +63,6 @@ public class SecondActivity extends AppCompatActivity {
             cities = new ArrayList<>();
             Bundle extras = getIntent().getExtras();
             if (extras != null){
-//            String name = extras.getString("name");
-//            String edad = extras.getString("age");
                 city = (Ciudad)extras.getSerializable("city");
                 cities.add(city);
             }
