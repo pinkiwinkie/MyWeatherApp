@@ -1,4 +1,4 @@
-package com.example.myweatherbase.activities;
+package com.example.myweatherbase.activities.logic;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -49,7 +49,15 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
         holder.tvDate.setText(dateDay.format(date));
         holder.tvHora.setText(dateHour.format(date));
         ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, holder.image);
-        //holder.image.setImageResource(Integer.parseInt(root.list.get(0).weather.get(0).icon));
+
+        /*
+        para dar mas informacion al detalle de cada elemento del reciclerView
+        * holder.itemView.setOnClicklListener(view -> {
+        * Intent intent = new Intent();
+        * extras
+        * wie.getContext.startActivity(i);
+        * })
+        * */
     }
 
     @Override

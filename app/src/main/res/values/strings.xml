@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyWeatherBase</string>
+    <string name="elige_una_ciudad">Elige una ciudad</string>
 </resources>
