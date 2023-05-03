@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myweatherbase.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class SecondActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     private ImageView imageViewCiudad;
     private Spinner spinnerCiudad;
     private Button buttonForecast;
+    private FloatingActionButton bAddUser;
     private Ciudad city;
 
     @Override
@@ -29,6 +31,7 @@ public class SecondActivity extends AppCompatActivity {
         imageViewCiudad = findViewById(R.id.imageViewCity);
         spinnerCiudad = findViewById(R.id.spinnerCiudad);
         buttonForecast = findViewById(R.id.buttonPrevision);
+        bAddUser = findViewById(R.id.addUser);
 
         ActivityResultLauncher<Intent> someActivityResultLauncher =
                 registerForActivityResult(
@@ -61,6 +64,11 @@ public class SecondActivity extends AppCompatActivity {
                 i.putExtra("ciudad", city);
                 someActivityResultLauncher.launch(i);
             }
+        });
+
+        bAddUser.setOnClickListener(view -> {
+            Intent intent = new Intent(this, FormularioActivity.class);
+            someActivityResultLauncher.launch(intent);
         });
     }
 }

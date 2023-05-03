@@ -29,6 +29,9 @@
         <activity
             android:name=".activities.TerceraActividad"
             android:exported="false"/>
+        <activity
+            android:name=".activities.FormularioActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
