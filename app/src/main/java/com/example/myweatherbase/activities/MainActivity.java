@@ -43,11 +43,10 @@ public class MainActivity extends BaseActivity implements CallInterface {
     @Override
     public void doInBackground() {
         Bundle bundle = getIntent().getExtras();
-        String name = bundle.getString("name");
-        textViewCiudad.setText(name);
-        if (name.equals("Valencia")){
-            root = Connector.getConector().get(Root.class,"");
-        }
+        Ciudad ciudad = (Ciudad)bundle.get("ciudad");
+        textViewCiudad.setText(ciudad.getName());
+        root = Connector.getConector().get(Root.class, ciudad.getPath());
+
 
     }
 
