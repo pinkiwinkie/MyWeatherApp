@@ -22,6 +22,9 @@ public class CiudadRepository {
         return instance;
     }
 
+    public void add(Ciudad ciudad) {
+        cities.add(ciudad);
+    }
     public List<Ciudad> getAll() {
         return new ArrayList<>(cities);
     }

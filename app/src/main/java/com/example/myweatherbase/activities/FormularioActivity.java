@@ -29,19 +29,23 @@ public class FormularioActivity extends AppCompatActivity {
 
         bCancelar.setOnClickListener(v -> {
             Intent i = new Intent();
-            setResult(RESULT_CANCELED,i);
+            setResult(RESULT_CANCELED, i);
             finish();
         });
 
         bAceptar.setOnClickListener(v -> {
             Intent i = new Intent();
-            String nombre = tietNombre.getText().toString();
-            String latitud = tietLat.getText().toString();
-            String longi = tietLong.getText().toString();
-            i.putExtra("ciudad", new Ciudad(nombre, );
-            setResult(RESULT_OK,i);
+            String nombre = String.valueOf(tietNombre.getText());
+            String latitud = String.valueOf(tietLat.getText());
+            String longi = String.valueOf(tietLong.getText());
+            i.putExtra("ciudad", new Ciudad(nombre, getPath(latitud, longi), R.mipmap.ic_generalphoto_foreground));
+            setResult(RESULT_OK, i);
             finish();
         });
+    }
+
+    public static String getPath(String latitud, String longitiud) {
+        return "&lat=" + latitud + "&lon=" + longitiud;
     }
 }
 //añadir preferencias -> preferences de androidx. en gitHub hay ejemplo.
