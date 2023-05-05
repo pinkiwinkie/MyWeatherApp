@@ -49,13 +49,14 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
         holder.tvDay.setText(dateDayOfWeek.format(date));
         holder.tvDate.setText(dateDay.format(date));
         holder.tvHora.setText(dateHour.format(date));
-        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(position).weather.get(0).icon + Parameters.ICON_URL_POST, holder.image);
+        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(position).weather.get(0).icon
+                + Parameters.ICON_URL_POST, holder.image);
 
         //para dar mas informacion al detalle de cada elemento del reciclerView
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), TerceraActividad.class);
-
+            intent.putExtra("",root); //poner getSerializable cuando se reciba en 3_activity
             view.getContext().startActivity(intent);
         });
     }

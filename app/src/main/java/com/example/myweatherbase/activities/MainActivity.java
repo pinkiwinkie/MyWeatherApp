@@ -29,7 +29,6 @@ public class MainActivity extends BaseActivity implements CallInterface {
         recyclerView = findViewById(R.id.recycler);
         textViewCiudad = findViewById(R.id.textViewCiudad);
 
-
         // Mostramos la barra de progreso y ejecutamos la llamada a la API
         showProgress();
         executeCall(this);
@@ -37,21 +36,12 @@ public class MainActivity extends BaseActivity implements CallInterface {
 
     // Realizamos la llamada y recogemos los datos en un objeto Root
 
-
-
-    // ActivityResultLauncher<Intent> someActivityResultLauncher =
-    //                registerForActivityResult(
-    //                        new ActivityResultContracts.StartActivityForResult(),
-    //                        result -> {
-    //                        });
     @Override
     public void doInBackground() {
         Bundle bundle = getIntent().getExtras();
         Ciudad ciudad = (Ciudad)bundle.get("ciudad");
         textViewCiudad.setText(ciudad.getName());
         root = Connector.getConector().get(Root.class, ciudad.getPath());
-
-
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos

@@ -41,17 +41,19 @@ public class SecondActivity extends AppCompatActivity {
         buttonForecast = findViewById(R.id.buttonPrevision);
         bAddCity = findViewById(R.id.addCity);
 
+        //primero
         if (savedInstanceState != null) {
             ciudades = (ArrayList<Ciudad>) savedInstanceState.getSerializable("ciudad");
         } else {
             ciudades = new ArrayList<>(CiudadRepository.getInstance().getAll());
         }
 
+        //segundo
         ArrayAdapter<Ciudad> myAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, ciudades);
         spinnerCiudad.setAdapter(myAdapter);
 
-
+        //tercero
         ActivityResultLauncher<Intent> someActivityResultLauncher =
                 registerForActivityResult(
                         new ActivityResultContracts.StartActivityForResult(),
