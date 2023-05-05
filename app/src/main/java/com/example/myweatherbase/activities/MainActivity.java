@@ -35,7 +35,11 @@ public class MainActivity extends BaseActivity implements CallInterface {
         executeCall(this);
     }
 
-    // Realizamos la llamada y recogemos los datos en un objeto Root ActivityResultLauncher<Intent> someActivityResultLauncher =
+    // Realizamos la llamada y recogemos los datos en un objeto Root
+
+
+
+    // ActivityResultLauncher<Intent> someActivityResultLauncher =
     //                registerForActivityResult(
     //                        new ActivityResultContracts.StartActivityForResult(),
     //                        result -> {
@@ -58,6 +62,5 @@ public class MainActivity extends BaseActivity implements CallInterface {
         AdaptadorRecicler adaptador = new AdaptadorRecicler(this, root);
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        textViewCiudad.setText(root.city.name);
     }
 }

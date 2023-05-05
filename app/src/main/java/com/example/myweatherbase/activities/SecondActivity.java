@@ -1,6 +1,5 @@
 package com.example.myweatherbase.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,15 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myweatherbase.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +23,7 @@ public class SecondActivity extends AppCompatActivity {
     private Spinner spinnerCiudad;
     private Button buttonForecast;
     private FloatingActionButton bAddCity;
-    private Ciudad city;
+    private Ciudad cityOption, city;
     private List<Ciudad> ciudades;
 
     @Override
@@ -46,35 +41,29 @@ public class SecondActivity extends AppCompatActivity {
                 CiudadRepository.getInstance().getAll());
         spinnerCiudad.setAdapter(myAdapter);
 
+        if (savedInstanceState != null) {
+            ciudades = (ArrayList<Ciudad>) savedInstanceState.getSerializable("ciudad");
+        } else {
+            ciudades = new ArrayList<>();
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                city = (Ciudad) extras.getSerializable("ciudad");
+                ciudades.add(city);
+                myAdapter.notifyDataSetChanged();
+            }
+        }
+
         ActivityResultLauncher<Intent> someActivityResultLauncher =
                 registerForActivityResult(
                         new ActivityResultContracts.StartActivityForResult(),
                         result -> {
-                            if (result.getResultCode() == RESULT_CANCELED)
-                                Toast.makeText(this, "Cancelado por el usuario",
-                                        Toast.LENGTH_LONG).show();
-                            else if (result.getResultCode() == Activity.RESULT_OK) {
-                                Intent data = result.getData();
-                                Ciudad ciudad;
-                                if (data != null) {
-                                    ciudad = (Ciudad)
-                                            data.getExtras().getSerializable("ciudad");
-                                    if (!(ciudad.getName().equals("") && ciudad.getPath().equals(""))) {
-                                        CiudadRepository.getInstance().add(ciudad);
-                                        Toast.makeText(this, "Nueva ciudad " +
-                                                        ciudad.getName(),
-                                                Toast.LENGTH_LONG).show();
-                                    } else
-                                        Toast.makeText(this, "No puede haber campos vacios", Toast.LENGTH_LONG).show();
-                                }
-                            }
                         });
 
         spinnerCiudad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 imageViewCiudad.setImageResource(CiudadRepository.getInstance().getAll().get(i).getImagen());
-                city = CiudadRepository.getInstance().getAll().get(i);
+                cityOption = CiudadRepository.getInstance().getAll().get(i);
             }
 
             @Override
@@ -82,22 +71,13 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        if (savedInstanceState != null) {
-            ciudades = CiudadRepository.getInstance().getAll();
-            Bundle extras = getIntent().getExtras();
-            if (extras != null) {
-//            String name = extras.getString("name");
-//            String edad = extras.getString("age");
-                city = (Ciudad) extras.getSerializable("ciudad");
-                CiudadRepository.getInstance().getAll().add(city);
-            }
-        }
+
 
         buttonForecast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ciudad", city);
+                i.putExtra("ciudad", cityOption);
                 someActivityResultLauncher.launch(i);
             }
         });
