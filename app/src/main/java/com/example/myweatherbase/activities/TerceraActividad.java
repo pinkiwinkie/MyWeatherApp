@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myweatherbase.R;
+import com.example.myweatherbase.activities.model.Root;
 
 public class TerceraActividad extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class TerceraActividad extends AppCompatActivity {
             rafagas,
             humedad,
             dia;
+    private Root root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +38,8 @@ public class TerceraActividad extends AppCompatActivity {
                     registerForActivityResult(
                             new ActivityResultContracts.StartActivityForResult(),
                             result -> {
+                                Intent data = result.getData();
+                                root = (Root) data.getExtras().getSerializable("root");
+                                dia.setText(root.list);
                             });
 }

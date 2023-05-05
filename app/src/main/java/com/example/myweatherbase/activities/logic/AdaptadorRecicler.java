@@ -56,7 +56,9 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), TerceraActividad.class);
-            intent.putExtra("",root); //poner getSerializable cuando se reciba en 3_activity
+            intent.putExtra("root",root); //poner getSerializable cuando se reciba en 3_activity
+            intent.putExtra("dia",);
+            intent.putExtra("hora",root);
             view.getContext().startActivity(intent);
         });
     }
