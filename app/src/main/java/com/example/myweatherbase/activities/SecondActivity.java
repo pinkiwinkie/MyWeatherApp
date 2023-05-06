@@ -2,7 +2,10 @@ package com.example.myweatherbase.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,8 +19,11 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myweatherbase.R;
+import com.example.myweatherbase.activities.preferencesmenu.PreferenciasActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +47,6 @@ public class SecondActivity extends AppCompatActivity {
         buttonForecast = findViewById(R.id.buttonPrevision);
         bAddCity = findViewById(R.id.addCity);
 
-        //primero
         if (savedInstanceState != null) {
             ciudades = (ArrayList<Ciudad>) savedInstanceState.getSerializable("ciudad");
         } else {
@@ -90,9 +95,30 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        //añadir ciudades
         bAddCity.setOnClickListener(view -> {
             Intent intent = new Intent(this, FormularioActivity.class);
             someActivityResultLauncher.launch(intent);
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.configuracion):
+                Intent intentPreferenciasActivity = new Intent(this, PreferenciasActivity.class);
+                startActivity(intentPreferenciasActivity);
+                return true;
+            case (R.id.exit):
+                finish();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
