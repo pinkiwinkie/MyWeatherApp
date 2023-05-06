@@ -43,9 +43,9 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
         SimpleDateFormat dateHour = new SimpleDateFormat("HH:mm");
 
         holder.tvCielo.setText(root.list.get(position).weather.get(0).description);
-        holder.tvTemperatura.setText(root.list.get(position).main.temp + "");
-        holder.tvTempMax.setText(root.list.get(position).main.temp_max + "");
-        holder.tvTempMin.setText(root.list.get(position).main.temp_min + "");
+        holder.tvTemperatura.setText(root.list.get(position).main.temp + " ºC");
+        holder.tvTempMax.setText(root.list.get(position).main.temp_max + " ºC");
+        holder.tvTempMin.setText(root.list.get(position).main.temp_min + " ºC");
         holder.tvDay.setText(dateDayOfWeek.format(date));
         holder.tvDate.setText(dateDay.format(date));
         holder.tvHora.setText(dateHour.format(date));
@@ -57,8 +57,7 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), TerceraActividad.class);
             intent.putExtra("root",root); //poner getSerializable cuando se reciba en 3_activity
-            intent.putExtra("dia",);
-            intent.putExtra("hora",root);
+            intent.putExtra("position", position);
             view.getContext().startActivity(intent);
         });
     }

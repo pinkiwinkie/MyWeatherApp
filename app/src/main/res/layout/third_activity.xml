@@ -13,6 +13,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="26dp"
         android:text="dia"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +25,7 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="76dp"
         android:text="hora"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewdia"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,10 +33,11 @@
     <TextView
         android:id="@+id/textViewSensacion"
         android:layout_width="112dp"
-        android:layout_height="32dp"
+        android:layout_height="42dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="47dp"
         android:text="Sensacion termica"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewdia" />
 
@@ -46,6 +49,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginEnd="76dp"
         android:text="sensacion"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewSensacion"
         app:layout_constraintTop_toBottomOf="@+id/textViewHora" />
@@ -57,6 +61,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="47dp"
         android:text="Viento"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSensacion" />
 
@@ -68,6 +73,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginEnd="76dp"
         android:text="viento"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewViento"
         app:layout_constraintTop_toBottomOf="@+id/textViewGetSensacion" />
@@ -79,6 +85,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="47dp"
         android:text="Rafagas"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewViento" />
 
@@ -90,6 +97,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginEnd="76dp"
         android:text="rafagas"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewRafagas"
         app:layout_constraintTop_toBottomOf="@+id/textViewGetViento" />
@@ -102,6 +110,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginBottom="356dp"
         android:text="Humedad"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRafagas" />
@@ -115,6 +124,7 @@
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="355dp"
         android:text="humedad"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewHumedad"
