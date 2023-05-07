@@ -16,7 +16,7 @@ public class CiudadRepository {
         cities.add(new Ciudad("Barcelona","&lat=41.7571627&lon=1.4092638 ", R.mipmap.ic_barcelona_foreground));
     }
 
-    public static CiudadRepository getInstance() {
+    public static synchronized CiudadRepository getInstance() {
         if (instance == null)
             instance = new CiudadRepository();
         return instance;

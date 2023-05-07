@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myweatherbase.R;
 import com.example.myweatherbase.activities.preferencesmenu.PreferenciasActivity;
+import com.example.myweatherbase.activities.preferencesmenu.ThemeSetup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
@@ -47,16 +48,16 @@ public class SecondActivity extends AppCompatActivity {
         buttonForecast = findViewById(R.id.buttonPrevision);
         bAddCity = findViewById(R.id.addCity);
 
-        if (savedInstanceState != null) {
-            ciudades = (ArrayList<Ciudad>) savedInstanceState.getSerializable("ciudad");
-        } else {
-            ciudades = new ArrayList<>(CiudadRepository.getInstance().getAll());
-        }
+        ciudades = (savedInstanceState != null) ?
+                (ArrayList<Ciudad>) savedInstanceState.getSerializable("ciudad") :
+                CiudadRepository.getInstance().getAll();
+
 
         //segundo
         ArrayAdapter<Ciudad> myAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, ciudades);
         spinnerCiudad.setAdapter(myAdapter);
+//
 
         //tercero
         ActivityResultLauncher<Intent> someActivityResultLauncher =
@@ -69,10 +70,10 @@ public class SecondActivity extends AppCompatActivity {
                                 Intent data = result.getData();
                                 city = (Ciudad) data.getExtras().getSerializable("ciudad");
                                 ciudades.add(city);
+                              //  ThemeSetup.applyPreferenceTheme(this); no funciona, peta si cambias el tema de la aplicacion.
                                 myAdapter.notifyDataSetChanged();
                             }
                         });
-
         spinnerCiudad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
