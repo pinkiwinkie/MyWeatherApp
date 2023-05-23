@@ -52,5 +52,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
         AdaptadorRecicler adaptador = new AdaptadorRecicler(this, root);
         recyclerView.setAdapter(adaptador);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
 }

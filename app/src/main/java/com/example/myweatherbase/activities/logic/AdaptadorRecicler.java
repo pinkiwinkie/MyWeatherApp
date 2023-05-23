@@ -52,6 +52,7 @@ public class AdaptadorRecicler extends RecyclerView.Adapter<AdaptadorRecicler.Vi
         ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(position).weather.get(0).icon
                 + Parameters.ICON_URL_POST, holder.image);
 
+
         //para dar mas informacion al detalle de cada elemento del reciclerView
 
         holder.itemView.setOnClickListener(view -> {
